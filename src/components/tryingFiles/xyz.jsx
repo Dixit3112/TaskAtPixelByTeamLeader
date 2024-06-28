@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Calendar, globalizeLocalizer } from 'react-big-calendar';
 import globalize from 'globalize';
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from "@fullcalendar/daygrid";
-import interactionPlugin from '@fullcalendar/interaction';
+
+
 
 const localizer = globalizeLocalizer(globalize);
 
@@ -105,3 +104,84 @@ export default function CalendarComponent() {
 // The react - big - calendar is configured to be selectable, triggering handleSelect on slot selection and handleEventClick on event selection.
 
 // The FullCalendar is configured similarly, using dateClick for date selection and eventClick for event selection.
+
+
+// _________________________________Two type of Calender_________________________
+
+// import React, { useEffect, useState } from 'react';
+// import { Calendar, globalizeLocalizer } from 'react-big-calendar';
+// import globalize from 'globalize';
+// import "react-big-calendar/lib/css/react-big-calendar.css";
+// import FullCalendar from '@fullcalendar/react';
+// import dayGridPlugin from "@fullcalendar/daygrid";
+// import interactionPlugin from '@fullcalendar/interaction'
+
+
+// const localizer = globalizeLocalizer(globalize)
+// export default function Calender() {
+
+//     const [events, setEvents] = useState([]);
+//     const myEventsList = JSON.parse(localStorage.getItem('events')) || [];
+
+//     useEffect(() => {
+//         const empData = JSON.parse(localStorage.getItem("employeeData")) || []
+//         const empBirthdays = empData.map(emp => ({
+//             title: `${emp.firstName} ${emp.lastName} - Birthday`,
+//             start: new Date(emp.birthDate),
+//             end: new Date(emp.birthDate),
+//         }));
+//         setEvents([...myEventsList, ...empBirthdays])
+//     }, []);
+
+//     const handleSelectDate = ({ start, end }) => {
+//         const title = prompt('New Event Name');
+//         const description = prompt('Event Description');
+//         if (title) {
+//             const newEvent = { title, start, end, description };
+//             const updateEvents = [...events, newEvent];
+//             setEvents(updateEvents);
+//             localStorage.setItem('events', JSON.stringify(updateEvents));
+//         }
+//     };
+//     const handleEventChanges = (event) => {
+//         const title = prompt('Edit Event name', event.title);
+//         const description = prompt('Edit Event Description', event.extendedProps.description);
+//         if (title) {
+//             const updateEvents = events.map(evt =>
+//                 evt.start.toISOString() === event.start.toISOString() && evt.end.toISOString() === event.end.toISOString()
+//                     ? { ...evt, title, description }
+//                     : evt
+//             );
+//             setEvents(updateEvents);
+//             localStorage.setItem('events', JSON.stringify(updateEvents));
+//         }
+//     };
+//     return (
+//         <div className='Container'>
+//             <div className="flex gap-10 items-center flex-wrap px-32 my-20">
+//                 <div className="w-full">
+//                     <Calendar
+//                         localizer={localizer}
+//                         events={events}
+//                         startAccessor="start"
+//                         endAccessor="end"
+//                         style={{ height: 500 }}
+//                         selectable
+//                         onSelectSlot={handleSelectDate}
+//                         onSelectEvent={handleEventChanges}
+//                     />
+//                 </div>
+//                 <div className="w-full">
+//                     <FullCalendar
+//                         plugins={[dayGridPlugin, interactionPlugin]}
+//                         initialView="dayGridMonth"
+//                         weekends={true}
+//                         events={events}
+//                         dateClick={handleSelectDate}
+//                         eventClick={handleEventChanges}
+//                     />
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }

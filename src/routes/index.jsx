@@ -1,3 +1,5 @@
+// router component variable
+
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../components/pages/Login";
 import SignUp from "../components/pages/SignUp";
@@ -8,11 +10,9 @@ import HODDashboard from "../components/pages/HODDashboard";
 import HRDashboard from "../components/pages/HRDashboard";
 import GenManagerDashboard from "../components/pages/GenManager";
 import PunchTime from "../components/pages/EmployeeWorkTime.jsx";
-// import ProtectedRoute from "./ProtectedRoute";
 
 
-const user = JSON.parse(localStorage.getItem('loggedInUser'));
-
+const users = JSON.parse(localStorage.getItem('loggedInUser')) || [{ firstName: "" }];
 
 const router = createBrowserRouter([
     {
@@ -32,24 +32,23 @@ const router = createBrowserRouter([
                 element: <SignUp />,
             },
             {
-                path: `/${user.firstName}/punching`,
+                path: `/${users.firstName}/punching`,
                 element: <PunchTime />
-                // element: <ProtectedRoute /> ? <PunchTime /> : <Home />,
             },
             {
-                path: `/employee/${user.firstName}`,
+                path: `/employee/${users.firstName}`,
                 element: <><EmployeeProfile /></>,
             },
             {
-                path: `/hod/${user.firstName}/dashboard`,
+                path: `/hod/${users.firstName}/dashboard`,
                 element: <><HODDashboard /></>,
             },
             {
-                path: `/hr/${user.firstName}/dashboard`,
+                path: `/hr/${users.firstName}/dashboard`,
                 element: <><HRDashboard /></>,
             },
             {
-                path: `/gm/${user.firstName}/dashboard`,
+                path: `/gm/${users.firstName}/dashboard`,
                 element: <><GenManagerDashboard /></>,
             },
             {

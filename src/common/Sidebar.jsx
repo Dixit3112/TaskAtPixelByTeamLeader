@@ -5,7 +5,8 @@ import { FaBars } from 'react-icons/fa';
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const user = JSON.parse(localStorage.getItem('loggedInUser'));
+  const user = JSON.parse(localStorage.getItem('loggedInUser')) || [{ firstName: "" }];
+
   const isGenManager = user?.designation === 'General Manager';
   const isHOD = user?.designation === 'HOD';
   const isHR = user?.department === "HR" && (user?.designation === 'HOD' || user?.designation === 'Manager' || user?.designation === 'Asst. Manager');

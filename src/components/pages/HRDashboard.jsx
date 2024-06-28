@@ -1,6 +1,7 @@
+
 import React, { useEffect, useState } from 'react'
-import UserTable from './TableOfShadCN';
-import CalendarDash from '../tryingFiles/Calender';
+import UserTable from './UserDataTableByShadCNUI';
+import CalendarDash from './Calender';
 
 export default function HRDashboard() {
     const [employees, setEmployees] = useState([]);
@@ -12,7 +13,6 @@ export default function HRDashboard() {
         if (storedEmployees) {
             setEmployees(storedEmployees);
             // setEmployees(storedEmployees.filter(employee => employee.department === "HR" && employee.designation === employeeDesignation && console.log("designation and department", employee.department, employee.designation, HRDepartment, employeeDesignation))) && setEmployees(storedEmployees);
-
         }
     }, []);
 
@@ -21,7 +21,7 @@ export default function HRDashboard() {
             <div className='container Container'>
                 <div className="hr p-5">
                     <h2 className='w-full text-center text-2xl font-semibold p-10'>HR Dashboard</h2>
-                    <div className="mx-auto">
+                    <div className="mx-auto my-20">
                         <div className="calender">
                             <CalendarDash />
                         </div>

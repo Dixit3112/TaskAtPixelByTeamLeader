@@ -18,7 +18,6 @@ export default function HODDashboard() {
         <div className='hodDashboard flex justify-center'>
             <div className="container">
                 <div className="w-full text-center flex flex-wrap flex-col gap-20">
-                    {/* <h2 className="py-5 font-semibold text-2xl">HOD Dashboard of {empDepartment.department} department</h2> */}
                     <h2 className="py-5 font-semibold text-2xl">HOD Dashboard</h2>
                     <div className="departmentEmployees">
                         {

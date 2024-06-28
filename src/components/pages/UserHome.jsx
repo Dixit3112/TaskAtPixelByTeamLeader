@@ -1,6 +1,5 @@
 import React from 'react'
-import Calender from '../tryingFiles/Calender'
-// import UserTable from './TableOfShadCN'
+import Calender from './Calender'
 
 export default function Home() {
 
@@ -71,9 +70,6 @@ export default function Home() {
                         <Calender />
                     </div>
                 </div>
-                {/* <div className="Container mx-auto h-[500px] my-auto">
-                    <UserTable />
-                </div> */}
             </div>
         </div>
     )

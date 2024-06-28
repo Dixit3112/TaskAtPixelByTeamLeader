@@ -1,3 +1,5 @@
+//Login Component
+
 import React, { useState } from 'react'
 import "../../styleFiles/login.scss";
 import { useNavigate } from 'react-router-dom';

@@ -7,9 +7,12 @@ import router from './routes';
 
 function App() {
 
+  const user = JSON.parse(localStorage.getItem('loggedInUser')) || [{ firstName: "" }];
+
+
   return (
     <>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} user={user} />
     </>
   )
 }
